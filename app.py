@@ -4,7 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from time import sleep
-
+import os
 def iniciar_driver():
     chrome_options = Options()
     arguments = ['--lang=pt-BR', '--window-size=1300,1000', '--incognito']
@@ -35,7 +35,10 @@ precos = driver.find_element(By.XPATH, "//span[@class= 'm7nrfa-0 eJCbzj sc-ifAKC
 #encontrar os links
 links = driver.find_elements(By.XPATH, "//a[@data-lurker-detail='list_id']")
 #Guardar isso em um arquivo .csv
-
+for titulo, preco, link in zip(titulos,precos,links):
+    with open('precos.csv','a',encoding="utf-8",newline='')as arquivo:
+        link_processado = link.get_attribute('href')
+        arquivo.write(f'{titulo.text};{preco.text};{link_processado.text}{os.linesep}')
 #fazer isso para todas as paginas existentes
 input('')
 driver.close()
