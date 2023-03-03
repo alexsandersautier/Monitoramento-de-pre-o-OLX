@@ -29,12 +29,13 @@ driver = iniciar_driver()
 driver.get('https://www.olx.com.br/estado-sc/oeste-de-santa-catarina?q=monitor')
 
 #Encontrar os títulos
-driver.find_element(By.XPATH, "//div[@class= 'sc-12rk7z2-7 kDVQFY']//h2")
+titulos = driver.find_element(By.XPATH, "//div[@class= 'sc-12rk7z2-7 kDVQFY']//h2")
 #Encontrar os preços
-driver.find_element(By.XPATH, "//span[@class= 'm7nrfa-0 eJCbzj sc-ifAKCX jViSDP']")
+precos = driver.find_element(By.XPATH, "//span[@class= 'm7nrfa-0 eJCbzj sc-ifAKCX jViSDP']")
 #encontrar os links
-driver.find_element(By.XPATH, "//a[@data-lurker-detail='list_id']")
+links = driver.find_elements(By.XPATH, "//a[@data-lurker-detail='list_id']")
 #Guardar isso em um arquivo .csv
+
 #fazer isso para todas as paginas existentes
 input('')
 driver.close()
