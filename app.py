@@ -27,8 +27,9 @@ def iniciar_driver():
 driver = iniciar_driver()
 #navegar até o site
 driver.get('https://www.olx.com.br/estado-sc/oeste-de-santa-catarina?q=monitor')
-#https://www.olx.com.br/estado-sc/oeste-de-santa-catarina?q=monitor
+
 #Encontrar os títulos
+driver.find_element(By.XPATH, "//div[@class= 'sc-12rk7z2-7 kDVQFY']//h2")
 #Encontrar os preços
 #Guardar isso em um arquivo .csv
 #fazer isso para todas as paginas existentes
